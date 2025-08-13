@@ -21,7 +21,7 @@ An infrared (IR) beacon–based auto docking system for mobile robots, designed 
 ## Features
 
 - **Ambient-Light Immunity:** Hardware adjusts for ambient light.
-- **Beacon Variation Compensation:** Adaptive thresholding circuitry handles fluctuations in received signal strength.  
+- **Beacon Signal Strength Variation Compensation:** Adaptive thresholding circuitry handles fluctuations in received signal strength.  
 - **Python Core:** Simple scripts for beacon testing and docking logic—easily extended or embedded.  
 
 ***
