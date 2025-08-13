@@ -13,10 +13,8 @@ An infrared (IR) beacon–based auto docking system for mobile robots, designed 
 5. [Usage](#usage)  
    - [Beacon Signal Test](#beacon-signal-test)  
    - [Automated Docking](#automated-docking)  
-6. [Configuration](#configuration)  
-7. [Hardware Integration](#hardware-integration)  
-8. [Troubleshooting](#troubleshooting)  
-9. [License](#license)  
+
+6. [License](#license)  
 
 ***
 
@@ -34,6 +32,7 @@ An infrared (IR) beacon–based auto docking system for mobile robots, designed 
 IR-BasedAutoDockingRobot/
 ├── beacon_test.py       # Test script to verify IR beacon reception
 ├── auto_docker.py       # Main docking routine (no motor control)
+├── main.py              # Main program for the robot with motor control
 ├── README.md            # This file
 └── LICENSE              # Project license (MIT)
 ```
@@ -61,7 +60,7 @@ IR-BasedAutoDockingRobot/
    ```bash
    pip install numpy scipy
    ```
-3. Wire your IR receiver to the designated input pin on your board.
+3. Check https://www.instructables.com/Automated-Docking-Using-IR/ 
 
 ***
 
@@ -94,43 +93,8 @@ The script logs heading angle and signal confidence; integrate its output with y
 
 ***
 
-## Configuration
 
-You can adjust parameters at the top of each script:
 
-- `SAMPLE_RATE` (Hz)  
-- `FILTER_ORDER` and `CUT_OFF_FREQ` for the digital filter  
-- `BEACON_FREQ` (Hz) modulation frequency  
-
-Modify these values to match your IR transmitter modulation and desired responsiveness.
-
-***
-
-## Hardware Integration
-
-This repository provides only the sensing and signal-processing logic. To complete the docking system:
-
-1. Mount an IR transmitter (beacon) at the docking station, modulated at the specified `BEACON_FREQ`.  
-2. Interface the Python scripts’ output (bearing angle, signal strength) to motor-control routines on your platform (e.g., via ROS topics, serial commands, GPIO PWM).  
-3. Tune PID or steering logic to guide wheels toward the beacon.
-
-For a full build guide, bill of materials, and wiring diagrams, see the Instructables page: https://www.instructables.com/Automated-Docking-Using-IR/
-
-***
-
-## Troubleshooting
-
-- **No signal detected:**  
-  - Confirm IR LED modulation using an oscilloscope or high-speed camera.  
-  - Adjust `--threshold` lower if the signal is weak.  
-- **False positives from ambient light:**  
-  - Check filter cutoff and increase digital filter order.  
-  - Add optical shields around receiver.  
-- **Erratic bearing readings:**  
-  - Increase sample rate or average over multiple readings.  
-  - Ensure beacon alignment and stable mounting.  
-
-***
 
 ## License
 
